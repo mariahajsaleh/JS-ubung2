@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>JavaScript Übungen</title>
+  </head>
+  <body>
+    <header>
+      <ul>
+        <li><a href="index.html">Klammern</a></li>
+        <li><a href="zusammen.html">Zusammensetzen</a></li>
+        <li><a href="if.html">If</a></li>
+        <li><a href="switch.html">Switch</a></li>
+        <li><a href="ternary.html">Ternary Operator</a></li>
+        <li><a href="funktion1.html">Funktionen 1</a></li>
+        <li><a href="funktion2.html">Funktionen 2</a></li>
+        <li><a href="for1.html">Klassisches for</a></li>
+        <li><a href="for2.html">Spezielles for</a></li>
+        <li><a href="foreach.html">forEach</a></li>
+        <li><a href="fehler1.html">Finde Fehler 1</a></li>
+        <li><a href="fehler2.html">Finde Fehler 2</a></li>
+      </ul>
+    </header>
+    <hr />
+    <main>
+     
+      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - --
+        -- - - - - - - - - - - - - - - - - - - - - - - - - - - - - --
+        -- Hier wird das Beispiel angezeigt
+        -- - - - - - - - - - - - - - - - - - - - - - - - - - - - - --
+        -- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+      <div class="beispiel" id="ausgabe"></div>
+      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - --
+        -- - - - - - - - - - - - - - - - - - - - - - - - - - - - - --
+        -- Hier liegt der JavaScript Code
+        -- - - - - - - - - - - - - - - - - - - - - - - - - - - - - --
+        -- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+      <script>
+        // Verbindung zum HTML-Element
+        //
+        const element = document.getElementById("ausgabe");
+        //
+        // Die Funktion ist unvollständig. Korrigiere die Fehler
+        // und vervollständige die Funktion, damit alles ausgegeben
+        // werden kann.
+        //
+        function zauberei(par)
+        {
+          let s = "";
+          // *** //
+          if(typeof par === "object")
+          {
+            s += `<h2>${par.titel}</h2>`;
+            // *** //
+            par.daten.forEach(
+              function(d)
+              {
+                switch(d.tag.toLowerCase())
+                {
+                  case 'table': s += tabelle(d); break;
+                  case 'dl': s += beschreibungsListe(d); break;
+                  case 'ul': s += ungeordneteListe(d); break;
+                  case 'ol': s += geordneteliste(d); break;
+                  case 'form': s += formular(d); break;
+                  default: s+= `<p>Fehler: ${d.tag} wird nicht unterstützt</p>`; break;
+                }
+              }
+            );
+          }
+          // *** //
+          element.innerHTML += s;
+        }
+        //
+        // Beim Erstellen der Tabelle, verwende die
+        // klassische for-Schleife und den
+        // if-Statement
+        //
+        const tabelle = (daten) =>
+       
+        { let sum ="";
+  for(let a =0; a< daten.daten.length ;a++)
+  {
+    if (daten.daten[a].tag == "th")
+    {
+      sum +=`<tr>`;
+        for (let b=0; b< daten.daten[a].daten.length ; b++){
+            sum += `<${daten.daten[a].tag}>${daten.daten[a].daten[b]} </${daten.daten[a].tag}>`;
+        }
+        sum +=`</tr>`;  
+    }
+   else if (daten.daten[a].tag == "td")
+    {
+      sum +=`<tr>`;
+        for (let b=0; b< daten.daten[a].daten.length ; b++){
+            sum += `<${daten.daten[a].tag}>${daten.daten[a].daten[b]} </${daten.daten[a].tag}>`;
+        }
+        sum +=`</tr>`;  
+    }
+  }
+    return`<h3>${daten.titel} </h3>
+    <${daten.tag}>${sum}</${daten.tag}>`;
+        };
+        //
+        // Beim Erstellen der Beschreibungsliste,
+        // verwende die spezielle for-Schleife
+        // und den ternaren Operator
+        //
+        const beschreibungsListe = (daten) =>
+        { 
+          let t="";
+          for (let x in  daten.daten){
+            t +=`<dt>${daten.daten[x].titel}</dt> `;
+            for(let i of  daten.daten[x].daten)
+            t +=`<dd>${i}</d> `;
+          }
+          return `<${daten.tag}>${daten.titel}</${daten.tag}>${t}`;
+        };
+        //
+        // Beim Erstellen der ungeordneten Liste
+        // nurze die forEach-Methode
+        //
+        const ungeordneteListe = (daten) =>
+        {
+            let s = "";
+          
+          // *** //
+         
+          daten.daten.forEach(
+            (x) => s += ` 
+           <li> ${x.land} ${x.ort}</li>`
+          );
+          
+          return `<${daten.tag}>${daten.titel}</${daten.tag}>${s}`;
+        };
+        //
+        // Beim Erstellen der geordneten Liste
+        // nurze die forEach-Methode
+        //
+        const geordneteliste = (daten) =>
+        {
+            let s1 = `<h3>${daten.titel} </h3>`;
+          
+          // *** //
+          
+          s1 +=`<${daten.tag}>`;
+          daten.liste.tage.forEach(
+            (x) => s1 += ` 
+           <li> ${x} </li>`
+          );
+          
+          daten.liste.sport.forEach(
+            (x) => s1 += ` 
+           <li> ${x} </li>`
+          );
+          s1 +=`</${daten.tag}>`;
+          return s1;
+        };
+        //
+        // Beim Erstellen der Beschreibungsliste,
+        // verwende die spezielle for-Schleife
+        // und den switch-Statement
+        //
+        const formular = (daten) =>
+        {
+          let s = `<h3>${daten.titel} </h3>`;
+         for (let x of daten.felder) {
+          if(x.type =="klick")
+        s+=`<br> <button >${x.name}</button>`;
+          
+        else if(x.type =="nachricht")
+        s+=`<h3>${x.name}</h3> <textarea ></textarea>`;
+        else if(x.type =="text" ||"number" ||"date")
+        s+=`<h3>${x.name}</h3><input type="${x.type}" >`;
+         }
+         return s;
+        };
+        //
+        // TESTEN //
+        //
+        zauberei(
+          {
+            titel : "Das ist eine aufwendige Nummer ):",
+            daten : [
+              {
+                titel : "Produktdetails",
+                tag : "table",
+                daten : [
+                  {
+                    tag : "th",
+                    daten : [ "Produkt", "Menge", "Preis" ]
+                  },
+                  {
+                    tag : "td",
+                    daten : [ "Pizza", "2x", "13,50 €" ]
+                  },
+                  {
+                    tag : "td",
+                    daten : [ "Pommes", "3x", "4,50 €" ]
+                  },
+                  {
+                    tag : "td",
+                    daten : [ "Cola", "1x", "1,80 €" ]
+                  }
+                ]
+              },
+              {
+                titel : "Rezepte",
+                tag : "dl",
+                daten : {
+                  rezept1 : {
+                    titel : "Pizza",
+                    daten : ["Teig", "Tomate", "Soße", "Salz", "Käse", "Gewürz"]
+                  },
+                  rezept2 : {
+                    titel : "Döner",
+                    daten : ["Fladenbrot", "Fleisch", "Salat", "Zazicki", "Ayran"]
+                  }
+                }
+              },
+              {
+                titel : "Urlaubsziele",
+                tag : "ul",
+                daten : [
+                  {
+                    land:  "Tunesien",
+                    ort : "Tunis"
+                  },
+                  {
+                    land : "Türkei",
+                    ort : "Antalya"
+                  },
+                  {
+                    land : "Spanien",
+                    ort : "Barcelona"
+                  }
+                ]
+              },
+              {
+                titel : "Notizen",
+                tag : "ol",
+                liste : {
+                  tage : [ "Montags Einkaufen", "Mittwochs Kino", "Freitags Faulenzen" ],
+                  sport : ["Golf", "Basketball", "Fußball"]
+                }
+              },
+              {
+                titel : "Kontaktformular",
+                tag : "form",
+                felder : [
+                  {
+                    type : "text",
+                    name : "Vorname"
+                  },
+                  {
+                    type : "text",
+                    name : "Nachname"
+                  },
+                  {
+                    type : "number",
+                    name : "Alter"
+                  },
+                  {
+                    type : "date",
+                    name : "Geburtsdatum"
+                  },
+                  {
+                    type : "nachricht",
+                    name : "Nachricht"
+                  },
+                  {
+                    type : "klick",
+                    name : "Senden"
+                  }
+                ]
+              }
+            ]
+          }
+        );
+      </script>
+    </main>
+    <hr />
+    <footer>
+      <p>
+        <h4>HINWEIS</h4>
+        Lese die Aufgaben sorgfältig durch. Achte sehr genau auf den Code. Nimm dir soviel Zeit, 
+        wie du brauchst. Beachte umbedingt die <b>Fehlerquellen</b> und <b>Hilfemittel</b> unten.
+      </p>
+      <div>
+      <div>
+        <h4>Fehlerquellen</h4>
+        <ul>
+          <li>Anzahl der Klammern</li>
+          <ul>
+            <li>{ und } &rarr; Blockklammer</li>
+            <li>[ und ] &rarr; Array-Klammer</li>
+            <li>( und ) &rarr; Parameterklammer oder Term-Klammer</li>
+            <li>&lt; und &gt; &rarr; HTML-Klammer</li>
+          </ul>
+          <li>
+            Groß- und Kleinschreibung
+            <ul>
+              <li><b>A</b> und <b>a</b> sind nicht dasselbe</li>
+            </ul>
+          </li>
+          <li>
+            Punkt
+            <ul>
+              <li>Beim Kommazahl</li>
+              <li>Beim Objekt-Key</li>
+              <li>Beim Array length, push, forEach</li>
+              <li>Beim toLowerCase(), toUpperCase() für Text</li>
+            </ul>
+          </li>
+          <li>
+            Komma
+            <ul>
+              <li>Zum Beispiel bei Kommazahlen</li>
+              <li>Beim Trennen von Parametern</li>
+              <li>Beim Anlegen von Array-Einträgen</li>
+              <li>Beim Trennen von JSON-Keys</li>
+            </ul>
+          </li>
+          <li>Doppelpunkt und Semikolon</li>
+          <li>
+            Namen
+            <ul>
+              <li>Auf Groß- und Kleinschreibung aufpassen</li>
+              <li>
+                im Selben Blockklammer können nicht zwei Ausdrücke mit demselben
+                Namen liegen
+              </li>
+              <li>Ein Name ist immer ein Wort!</li>
+            </ul>
+          </li>
+          <li>
+            Das Vergessen von
+            <ul>
+              <li>const</li>
+              <li>let</li>
+              <li>var</li>
+              <li>Semikolon</li>
+              <li>Klammer</li>
+              <li>Gänsefüßchen "" oder ' ' oder ` `</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h4>Hilfemittel</h4>
+        <ul>
+          <li>
+            Kommentiere einen Teil des Codes aus, um zu prüfen, ob der Rest
+            funktioniert.
+            <ul>
+              <li>// Einzeiliger Kommentar</li>
+              <li>/* Mehrzeiliger Kommentar */</li>
+            </ul>
+          </li>
+          <li>
+            Benutze die Konsole um zu prüfen, ob der Code funktioniert
+            <ul>
+              <li>console.log(x)</li>
+              <li>console.log(x,y,z)</li>
+              <li>
+                Die Konsole darf niemals vor einem Blockklammer liegen, die
+                einer Funktion, einem IF, einem SWITCH oder einer FOR gehört
+              </li>
+            </ul>
+          </li>
+          <li>
+            Orientiere dich an Farben im Code
+            <ul>
+              <li>
+                Die roten Zikzak-Unterstriche geben an, dass irgendwas über der
+                Stelle nicht richtig geschrieben ist
+              </li>
+              <li>
+                Rote Klammer sagt aus, das sie nicht geschlossen wurde oder
+                irgendein falscher Klammer vorhanden ist
+              </li>
+              <li>
+                Ist der Code ab einer Stelle ganz weis, dann ist ein
+                HTML-Klammer nicht zu oder der Code hat erhebliche Fehler
+              </li>
+              <li>
+                Ist der Code ab einer Stelle in Lila-Farbe, dann ist ein String
+                noch offen, also der Gänsefüßchen zum Schließen fehlt
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    </footer>
+  </body>
+</html>

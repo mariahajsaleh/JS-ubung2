@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>JavaScript Übungen</title>
+  </head>
+  <body>
+    <header>
+      <ul>
+        <li><a href="index.html">Klammern</a></li>
+        <li><a href="zusammen.html">Zusammensetzen</a></li>
+        <li><a href="if.html">If</a></li>
+        <li><a href="switch.html">Switch</a></li>
+        <li><a href="ternary.html">Ternary Operator</a></li>
+        <li><a href="funktion1.html">Funktionen 1</a></li>
+        <li><a href="funktion2.html">Funktionen 2</a></li>
+        <li><a href="for1.html">Klassisches for</a></li>
+        <li><a href="for2.html">Spezielles for</a></li>
+        <li><a href="foreach.html">forEach</a></li>
+        <li><a href="fehler1.html">Finde Fehler 1</a></li>
+        <li><a href="fehler2.html">Finde Fehler 2</a></li>
+      </ul>
+    </header>
+    <hr />
+    <main>
+      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - --
+        -- - - - - - - - - - - - - - - - - - - - - - - - - - - - - --
+        -- Hier wird das Beispiel angezeigt
+        -- - - - - - - - - - - - - - - - - - - - - - - - - - - - - --
+        -- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+      <div class="beispiel" id="ausgabe"></div>
+      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - --
+        -- - - - - - - - - - - - - - - - - - - - - - - - - - - - - --
+        -- Hier liegt der JavaScript Code
+        -- - - - - - - - - - - - - - - - - - - - - - - - - - - - - --
+        -- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+      <script>
+        // Verbindung zum HTML-Element
+        //
+        const element = document.getElementById("ausgabe");
+        //
+        // Beim IF gilt, logische Verknüpfungen werden mit && gemacht.
+        // Zum Beispiel: if (a == 1 && b == 2) -> Wenn a = 1 und b = 2
+        //
+        // Logisches ODER wird mit zweich Strichen || gemacht.
+        // Zum Beispiel: if (a == 1 || a == 2) -> Wenn a = 1 oder a = 2
+        //
+        // Eine Bedingung wird mit Hilfe von Operatoren geprüft.
+        // Eine Bedingung besteht aus zwei Werten und einem Operator.
+        // Beispiel: Wert1 == Wert2
+        //
+        // Die Operatoren sind:
+        //
+        // ==      Wert1 und Wert2 sollen gleich sein
+        // ===     Wert1 und Wert2 sollen gleich sein und vom selben Typ sein
+        //
+        // !=      Wert1 und Wert2 sollen unterschiedlich sein
+        // !==     Wert2 und Wert2 sollen unterschiedlich sein und verschiedene Typen haben
+        //
+        // >=      Wert1 soll größer oder gleich Wert2 sein
+        // >       Wert1 soll größer als Wert2 sein
+        //
+        // <=      Wert1 soll kleiner oder gleich Wert2 sein
+        // <       Wert1 soll kleiner als Wert2 sein
+        //
+        // Ein "if" beginnt immer mit dem Begriff "if" für "WENN".
+        // Wenn weitere Prüfungen statt finden sollen, dann kann man
+        // weitere "else if" Prüfungen dranhängen. "else if" für "ODER WENN".
+        // Wenn man einen Sonstfall haben möchte, die immer eintrifft,
+        // wenn die vorherigen Prüfungen alle fehlgeschlagen haben,
+        // dann benutzt man "else" für "Sonst".
+        // Beispiele:
+        //
+        // if (...)         if(...)         if(...)         if(...)
+        //    ...;            ...;            ...;            ...;
+        //                  else            else if(...)    else if(...)
+        //                    ...;            ...;            ...;
+        //                                                  else
+        //                                                    ...;
+        //
+        // Wenn der "if" nur eine Anweidungen ausführen soll, so
+        // reicht es nachdem IF-Statement die Anweisung zu schreiben
+        // und einen Semikolon zu setzen. Beispiel:
+        // if(x === 1) console.log("Hurra");
+        //
+        // Wenn nach dem Statement mehrere Anweisungen ausgeführt
+        // werden sollen, dann braucht man den Blockklammer. Beispiel:
+        // if(x === 1)
+        // {
+        //      a = b + c;
+        //      d *= a;
+        //      console.log(a, d);
+        // }
+        //
+        //
+        //         - - - - AUFGABE FOLGT - - - -
+        //
+        //
+        //
+        // Wenn x größer als 3 und kleiner als 9 ist, dann
+        // schreibe den Wert aus der Position 0. Andernfalls
+        // den Wert aus Position 1. Mach zwei Beispiele,
+        // wo beide Zustände einmal angewendet werden.
+        //
+        const texte1 = ["Die Zahl liegt <b>zwischen</b> 3 und 9", "Die Zahl liegt <b>außerhalb</b> von 3 und 9"];
+        // *** //
+        let x = 5;
+        //
+        if (x >= 3 && x <= 9) element.innerHTML += texte1[0];
+        element.innerHTML += `<hr>`;
+        //
+        x = 11;
+        //
+        if (x < 3 || x > 9) element.innerHTML += texte1[1];
+        //
+        // Ignoriere die Stelle und schau weiter nach unten!
+        //
+        element.innerHTML += `<hr>`;
+        //
+        // Wenn das Array mindestens 3 Einträge enthält, dann sollen alle
+        // drei in einem Mischtext in das HTML-Element geschrieben werden.
+        // Bestimmte die Array-Werte und definiere den passenden if-Statement.
+        // Prüfe auf die Anzahl der Elemente im Array. Wenn die Anzahl der
+        // Einträge nicht 3 ist, dann gib die folgende Fehlermeldung aus:
+        //
+        // Das Array enthält nicht die vorgegebene Anzahl an Werten!
+        //
+        const texte2 = [];
+        //
+        let r="";
+        for (let n=0; n<texte2.length; n++)
+        r += texte2[n];
+        //
+        if (texte2.length >= 3) element.innerHTML += `${r}`;
+        else element.innerHTML += `Das Array enthält nicht die vorgegebene Anzahl an Werten!`;
+        //
+        // Ignoriere die Stelle und schau weiter nach unten!
+        //
+        element.innerHTML += `<hr>`;
+        //
+        // Wenn der eingegebene Text mit einer A oder mit einem E beginnt,
+        // dann schreibe `Deine Eingabe "${...}" beginnt mit einer A oder einer E`.
+        // Wenn aber der eingegebene Text mit einer B oder P oder F beginnt,
+        // dann schreibe `Deine Texteinabe "${...}" fängt mit B, P oder F an`.
+        // Falls jedoch der eingegebene Text mit einer K, G, T oder D beginnt,
+        // dann schreibe `Die Eingabe von dir "${...}" beginnt mit der Buchstabe K, G, T oder D`.
+        // In allen anderen Fällen schreibe `Die Eingabe lautet: ${...}`.
+        // BITTE BEACHTE die Groß- und Kleinschreibun der ersten Buchstabe. Sorge dafür
+        // das A und a, E und e, B und b, P und p, F und f, K und k, G und g, 
+        // T und t sowie D und d erkannt werden. Verwende dazu toLowerCase() oder
+        // toUpperCase()
+        //
+        element.innerHTML += `<button onClick = "tippWas()">Tipp Was</button>`;
+        //
+        const tippWas = function ()
+        {
+          const eingabe = prompt("Tipp was ein");
+          //
+          if (eingabe[0].toLocaleUpperCase() == "A"  || eingabe[0].toLocaleUpperCase() == "E") 
+          element.innerHTML += ` Deine Eingabe ${eingabe} beginnt mit einer A oder einer E`;
+          else if(eingabe[0].toLocaleUpperCase() == "B"  || eingabe[0].toLocaleUpperCase() == "P" || eingabe[0].toLocaleUpperCase() == "F"){
+            element.innerHTML +=` Deine Eingabe ${eingabe} fängt mit B, P oder F an`;
+          }
+          else if(eingabe[0].toLocaleUpperCase() == "K"  || eingabe[0].toLocaleUpperCase() == "G" || eingabe[0].toLocaleUpperCase() == "T" || eingabe[0].toLocaleUpperCase() == "D"){
+            element.innerHTML += ` Deine Eingabe ${eingabe} beginnt mit der Buchstabe K, G, T oder D`;
+          }
+          else { element.innerHTML +=`Die Eingabe lautet: ${eingabe}`}
+        }
+        //
+      </script>
+    </main>
+    <hr />
+    <footer>
+      <p>
+        <h4>HINWEIS</h4>
+        Lese die Aufgaben sorgfältig durch. Achte sehr genau auf den Code. Nimm dir soviel Zeit, 
+        wie du brauchst. Beachte umbedingt die <b>Fehlerquellen</b> und <b>Hilfemittel</b> unten.
+      </p>
+      <div>
+      <div>
+        <h4>Fehlerquellen</h4>
+        <ul>
+          <li>Anzahl der Klammern</li>
+          <ul>
+            <li>{ und } &rarr; Blockklammer</li>
+            <li>[ und ] &rarr; Array-Klammer</li>
+            <li>( und ) &rarr; Parameterklammer oder Term-Klammer</li>
+            <li>&lt; und &gt; &rarr; HTML-Klammer</li>
+          </ul>
+          <li>
+            Groß- und Kleinschreibung
+            <ul>
+              <li><b>A</b> und <b>a</b> sind nicht dasselbe</li>
+            </ul>
+          </li>
+          <li>
+            Punkt
+            <ul>
+              <li>Beim Kommazahl</li>
+              <li>Beim Objekt-Key</li>
+              <li>Beim Array length, push, forEach</li>
+              <li>Beim toLowerCase(), toUpperCase() für Text</li>
+            </ul>
+          </li>
+          <li>
+            Komma
+            <ul>
+              <li>Zum Beispiel bei Kommazahlen</li>
+              <li>Beim Trennen von Parametern</li>
+              <li>Beim Anlegen von Array-Einträgen</li>
+              <li>Beim Trennen von JSON-Keys</li>
+            </ul>
+          </li>
+          <li>Doppelpunkt und Semikolon</li>
+          <li>
+            Namen
+            <ul>
+              <li>Auf Groß- und Kleinschreibung aufpassen</li>
+              <li>
+                im Selben Blockklammer können nicht zwei Ausdrücke mit demselben
+                Namen liegen
+              </li>
+              <li>Ein Name ist immer ein Wort!</li>
+            </ul>
+          </li>
+          <li>
+            Das Vergessen von
+            <ul>
+              <li>const</li>
+              <li>let</li>
+              <li>var</li>
+              <li>Semikolon</li>
+              <li>Klammer</li>
+              <li>Gänsefüßchen "" oder ' ' oder ` `</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h4>Hilfemittel</h4>
+        <ul>
+          <li>
+            Kommentiere einen Teil des Codes aus, um zu prüfen, ob der Rest
+            funktioniert.
+            <ul>
+              <li>// Einzeiliger Kommentar</li>
+              <li>/* Mehrzeiliger Kommentar */</li>
+            </ul>
+          </li>
+          <li>
+            Benutze die Konsole um zu prüfen, ob der Code funktioniert
+            <ul>
+              <li>console.log(x)</li>
+              <li>console.log(x,y,z)</li>
+              <li>
+                Die Konsole darf niemals vor einem Blockklammer liegen, die
+                einer Funktion, einem IF, einem SWITCH oder einer FOR gehört
+              </li>
+            </ul>
+          </li>
+          <li>
+            Orientiere dich an Farben im Code
+            <ul>
+              <li>
+                Die roten Zikzak-Unterstriche geben an, dass irgendwas über der
+                Stelle nicht richtig geschrieben ist
+              </li>
+              <li>
+                Rote Klammer sagt aus, das sie nicht geschlossen wurde oder
+                irgendein falscher Klammer vorhanden ist
+              </li>
+              <li>
+                Ist der Code ab einer Stelle ganz weis, dann ist ein
+                HTML-Klammer nicht zu oder der Code hat erhebliche Fehler
+              </li>
+              <li>
+                Ist der Code ab einer Stelle in Lila-Farbe, dann ist ein String
+                noch offen, also der Gänsefüßchen zum Schließen fehlt
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    </footer>
+  </body>
+</html>
